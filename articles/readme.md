@@ -3,3 +3,6 @@
 [机器学习之文本分类 - 第一部分](http://blog.rockyqi.net/machine-learning-text-classification%20-%20part%20I.html)
 
 [models.word2vec – Deep learning with word2vec](http://radimrehurek.com/gensim/models/word2vec.html)
+
+[互联网时代的社会语言学：基于SNS的文本数据挖掘](http://www.matrix67.com/blog/archives/5044)
+
