@@ -13,7 +13,7 @@ tp.corpus_path = "./text_corpus2_small/"    #原始语料路径
 tp.pos_path = "text_corpus2_pos/"       #预处理后语料路径
 tp.segment_path = "text_corpus2_segment/"   #分词后语料路径
 tp.wordbag_path = "./text_corpus2_wordbag/"   #词袋模型路径
-tp.stopword_path = "./extra_dict/hlt_stop_words.txt"  #停止词路径
+tp.stopword_path = "../extra_dict/hlt_stop_words.txt"  #停止词路径
 tp.trainset_name = "trainset.dat"      #训练集文件名
 tp.wordbag_name = "wordbag.dat"       #词包文件名
 # tp.preprocess()
