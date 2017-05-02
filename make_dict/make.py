@@ -27,12 +27,13 @@ def print_result():
 
 for line in f:
     count += 1
+    print count
     if count > 50:
         print_result()
         exit()
     line = line.strip()
     content = re.sub(ur'[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）：「」；]+', u'', line)
-    for w in jieba.cut(content):
+    for w in jieba.cut(content,cut_all=True):
         if w in stop_words:
             continue
         if w in words:
