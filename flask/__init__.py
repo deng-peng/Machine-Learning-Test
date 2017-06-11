@@ -24,22 +24,34 @@ def clean_content(s):
 
 @app.route("/tags", methods=['POST'])
 def idf_tags():
-    top = request.form.get('top', '10')
-    content = request.form['content']
-    content = clean_content(content)
-    tags = jieba.analyse.extract_tags(content, topK=int(top))
-    return jsonify(tags)
+    req = request.get_json(force=True)
+    top = 10
+    if 'top' in req:
+        top = req['top']
+    response = {}
+    for key in req['list']:
+        content = clean_content(req['list'][key])
+        tags = {}
+        for x, y in jieba.analyse.extract_tags(content, topK=int(top), withWeight=True):
+            tags[x] = y
+        response[key] = tags
+    return jsonify(response)
 
 
 @app.route("/tags/textrank", methods=['POST'])
 def rank_tags():
-    top = request.form.get('top', '10')
-    content = request.form['content']
-    content = clean_content(content)
-    tags = []
-    for x, y in jieba.analyse.textrank(content, topK=int(top), withWeight=True):
-        tags.append(x)
-    return jsonify(tags)
+    req = request.get_json(force=True)
+    top = 10
+    if 'top' in req:
+        top = req['top']
+    response = {}
+    for key in req['list']:
+        content = clean_content(req['list'][key])
+        tags = {}
+        for x, y in jieba.analyse.textrank(content, topK=int(top), withWeight=True):
+            tags[x] = y
+        response[key] = tags
+    return jsonify(response)
 
 
 if __name__ == "__main__":
